@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.Serialization;
 using System.ServiceModel;
@@ -8,10 +9,10 @@ using System.Text;
 
 namespace PWSZ_WCF
 {
-    // NOTE: You can use the "Rename" command on the "Refactor" menu to change the class name "Service1" in code, svc and config file together.
-    // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
+
     public class Service1 : IService1
     {
+
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -28,6 +29,44 @@ namespace PWSZ_WCF
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public string Logowanie(string login, string haslo)
+        {
+            aplikacjaPWSZEntities db = new aplikacjaPWSZEntities();
+            try
+            {
+              var user = db.Users.Find(Int16.Parse(login)).Haslo.Equals(haslo);
+
+                if (user == true)
+                {
+                    var toUpdate = db.Users.Find(Int16.Parse(login));
+                    string random = GetRandomString();
+                    
+                    db.Users.Attach(toUpdate);
+                    var entry = db.Entry(toUpdate);
+                    entry.Property(e => e.Cookie).CurrentValue = random;
+                    db.SaveChanges();
+                    return random;
+                }
+                else
+                {
+                    return "false";
+                }
+            }
+            catch (NullReferenceException ex)
+            {
+                return "false";
+            }
+
+
+        }
+
+        public static string GetRandomString()
+        {
+            string path = Path.GetRandomFileName();
+            path = path.Replace(".", ""); // Remove period.
+            return path;
         }
     }
 }

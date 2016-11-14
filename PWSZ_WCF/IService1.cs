@@ -12,6 +12,8 @@ namespace PWSZ_WCF
     [ServiceContract]
     public interface IService1
     {
+        [OperationContract]
+        string Logowanie(String login, String haslo);
 
         [OperationContract]
         string GetData(int value);
