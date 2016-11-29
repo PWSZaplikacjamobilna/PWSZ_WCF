@@ -1,18 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace PWSZ_WCF
 {
-
     public class Service1 : IService1
     {
-
         public string GetData(int value)
         {
             return string.Format("You entered: {0}", value);
@@ -21,51 +13,79 @@ namespace PWSZ_WCF
         public CompositeType GetDataUsingDataContract(CompositeType composite)
         {
             if (composite == null)
-            {
                 throw new ArgumentNullException("composite");
-            }
             if (composite.BoolValue)
-            {
                 composite.StringValue += "Suffix";
-            }
             return composite;
         }
 
         public string Logowanie(string login, string haslo)
         {
-            aplikacjaPWSZEntities db = new aplikacjaPWSZEntities();
+            var db = new aplikacjaPWSZEntities2();
             try
             {
-              var user = db.Users.Find(Int16.Parse(login)).Haslo.Equals(haslo);
+                var user = db.Rejestracja.Find(login).Haslo.Equals(haslo);
 
-                if (user == true)
+                if (user)
                 {
-                    var toUpdate = db.Users.Find(Int16.Parse(login));
-                    string random = GetRandomString();
-                    
-                    db.Users.Attach(toUpdate);
+                    var toUpdate = db.Rejestracja.Find(login);
+                    var random = GetRandomString();
+
+                    db.Rejestracja.Attach(toUpdate);
                     var entry = db.Entry(toUpdate);
-                    entry.Property(e => e.Cookie).CurrentValue = random;
+                    entry.Property(e => e.Coockie).CurrentValue = random;
+                    entry.Property(e => e.DateCoockie).CurrentValue = DateTime.Now;
                     db.SaveChanges();
                     return random;
                 }
-                else
-                {
-                    return "false";
-                }
+                return "false";
             }
             catch (NullReferenceException ex)
             {
                 return "false";
             }
+        }
 
+        public string Rejestracja(string indeks, string haslo, string kierunek, string rok, string grupaW, string grupaL, string promotor)
+        {
+            var db = new aplikacjaPWSZEntities2();
+            try
+            {
+                
+                var user = db.Rejestracja.Find(indeks);
+                return "jest";
+            }
+            catch (NullReferenceException ex)
+            {
+                var newUser = new Rejestracja();
+                newUser.NumerIndeksu = indeks;
+                newUser.GrupaWykladowa = grupaW;
+                newUser.GrupaLaboratoryjna = grupaL;
+                newUser.Haslo = haslo;
+                newUser.Kierunek = kierunek;
+                newUser.Promotor = promotor;
+                
+                var random = GetRandomString();
+                newUser.Coockie = random;
+                newUser.DateCoockie = DateTime.Now;
 
+                db.Rejestracja.Add(newUser);
+                try
+                {
+                    db.SaveChanges();
+                    return random;
+                }
+                catch (Exception e)
+                {
+                    return "err "+e;
+                }
+            }
         }
 
         public static string GetRandomString()
         {
-            string path = Path.GetRandomFileName();
-            path = path.Replace(".", ""); // Remove period.
+            var path = Path.GetRandomFileName();
+            path = path.Replace(".", "");
             return path;
         }
     }

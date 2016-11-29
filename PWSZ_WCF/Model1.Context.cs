@@ -13,10 +13,10 @@ namespace PWSZ_WCF
     using System.Data.Entity;
     using System.Data.Entity.Infrastructure;
     
-    public partial class aplikacjaPWSZEntities : DbContext
+    public partial class aplikacjaPWSZEntities2 : DbContext
     {
-        public aplikacjaPWSZEntities()
-            : base("name=aplikacjaPWSZEntities")
+        public aplikacjaPWSZEntities2()
+            : base("name=aplikacjaPWSZEntities2")
         {
         }
     
@@ -25,13 +25,17 @@ namespace PWSZ_WCF
             throw new UnintentionalCodeFirstException();
         }
     
-        public virtual DbSet<Budynki> Budynki { get; set; }
-        public virtual DbSet<Dojazd> Dojazd { get; set; }
+        public virtual DbSet<DniZajec> DniZajec { get; set; }
+        public virtual DbSet<GrupaLaboratoryjna> GrupaLaboratoryjna { get; set; }
+        public virtual DbSet<GrupaWykladowa> GrupaWykladowa { get; set; }
+        public virtual DbSet<Kierunki> Kierunki { get; set; }
         public virtual DbSet<Konsultacje> Konsultacje { get; set; }
-        public virtual DbSet<Kontakt> Kontakt { get; set; }
-        public virtual DbSet<Plan> Plan { get; set; }
+        public virtual DbSet<Promotor> Promotor { get; set; }
+        public virtual DbSet<Rejestracja> Rejestracja { get; set; }
+        public virtual DbSet<Rok> Rok { get; set; }
+        public virtual DbSet<Specjalnosc> Specjalnosc { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Terminarz> Terminarz { get; set; }
-        public virtual DbSet<Users> Users { get; set; }
+        public virtual DbSet<Zajecia> Zajecia { get; set; }
     }
 }

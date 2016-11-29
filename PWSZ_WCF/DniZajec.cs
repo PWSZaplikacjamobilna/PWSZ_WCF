@@ -12,16 +12,10 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Terminarz
+    public partial class DniZajec
     {
+        public Nullable<int> ZajeciaID { get; set; }
+        public Nullable<System.DateTime> Dzien { get; set; }
         public int ID { get; set; }
-        public string Nazwa { get; set; }
-        public string Opis { get; set; }
-        public Nullable<System.DateTime> Data { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string GrupaWykladowa { get; set; }
-        public string GrupaLaboratoryjna { get; set; }
-        public string Promotor { get; set; }
     }
 }

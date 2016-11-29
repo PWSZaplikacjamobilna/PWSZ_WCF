@@ -12,16 +12,9 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Terminarz
+    public partial class GrupaLaboratoryjna
     {
         public int ID { get; set; }
-        public string Nazwa { get; set; }
-        public string Opis { get; set; }
-        public Nullable<System.DateTime> Data { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string GrupaWykladowa { get; set; }
-        public string GrupaLaboratoryjna { get; set; }
-        public string Promotor { get; set; }
+        public string GrupaLaboratoryjna1 { get; set; }
     }
 }

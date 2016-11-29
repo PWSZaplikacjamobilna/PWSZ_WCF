@@ -12,10 +12,9 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Dojazd
+    public partial class Rok
     {
-        public string Ulica { get; set; }
-        public string Numer { get; set; }
-        public string Lokalizacja { get; set; }
+        public int ID { get; set; }
+        public string Rok1 { get; set; }
     }
 }

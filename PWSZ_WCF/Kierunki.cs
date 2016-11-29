@@ -12,11 +12,9 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Kontakt
+    public partial class Kierunki
     {
         public int ID { get; set; }
-        public string Dane { get; set; }
-        public string Adres { get; set; }
-        public string Telefon { get; set; }
+        public string Kierunek { get; set; }
     }
 }

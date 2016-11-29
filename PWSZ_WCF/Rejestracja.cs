@@ -12,17 +12,16 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Plan
+    public partial class Rejestracja
     {
-        public int ID { get; set; }
+        public string NumerIndeksu { get; set; }
+        public string Haslo { get; set; }
         public string Kierunek { get; set; }
         public string Rok { get; set; }
-        public string Specjalność { get; set; }
-        public string Grupa { get; set; }
-        public string Dzien { get; set; }
-        public Nullable<System.DateTime> Godzina { get; set; }
-        public string Przedmiot { get; set; }
-        public string Wykładowca { get; set; }
-        public string Sala { get; set; }
+        public string GrupaWykladowa { get; set; }
+        public string GrupaLaboratoryjna { get; set; }
+        public string Promotor { get; set; }
+        public string Coockie { get; set; }
+        public Nullable<System.DateTime> DateCoockie { get; set; }
     }
 }

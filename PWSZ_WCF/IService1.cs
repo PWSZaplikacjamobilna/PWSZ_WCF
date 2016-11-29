@@ -1,10 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace PWSZ_WCF
 {
@@ -13,7 +8,10 @@ namespace PWSZ_WCF
     public interface IService1
     {
         [OperationContract]
-        string Logowanie(String login, String haslo);
+        string Logowanie(string login, string haslo);
+
+        [OperationContract]
+        string Rejestracja(string indeks, string haslo, string kierunek, string rok, string grupaW, string grupaL, string promotor);
 
         [OperationContract]
         string GetData(int value);
@@ -29,21 +27,10 @@ namespace PWSZ_WCF
     [DataContract]
     public class CompositeType
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        [DataMember]
+        public bool BoolValue { get; set; } = true;
 
         [DataMember]
-        public bool BoolValue
-        {
-            get { return boolValue; }
-            set { boolValue = value; }
-        }
-
-        [DataMember]
-        public string StringValue
-        {
-            get { return stringValue; }
-            set { stringValue = value; }
-        }
+        public string StringValue { get; set; } = "Hello ";
     }
 }

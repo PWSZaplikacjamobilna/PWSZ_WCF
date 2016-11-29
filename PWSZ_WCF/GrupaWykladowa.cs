@@ -12,15 +12,9 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Users
+    public partial class GrupaWykladowa
     {
-        public int indeks { get; set; }
-        public string Haslo { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string Grupa { get; set; }
-        public string Promotor { get; set; }
-        public string Cookie { get; set; }
-        public Nullable<System.DateTime> CookieDate { get; set; }
+        public int ID { get; set; }
+        public string GrupaWykładowa { get; set; }
     }
 }

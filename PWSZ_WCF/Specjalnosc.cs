@@ -12,11 +12,9 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Budynki
+    public partial class Specjalnosc
     {
-        public string Budynek { get; set; }
-        public string Ulica { get; set; }
-        public string Numer { get; set; }
-        public string Zdjecie { get; set; }
+        public int ID { get; set; }
+        public string Specjalność { get; set; }
     }
 }
