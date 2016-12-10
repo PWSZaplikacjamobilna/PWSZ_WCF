@@ -36,6 +36,7 @@ namespace PWSZ_WCF
         public virtual DbSet<Specjalnosc> Specjalnosc { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Terminarz> Terminarz { get; set; }
+        public virtual DbSet<Wykladowca> Wykladowca { get; set; }
         public virtual DbSet<Zajecia> Zajecia { get; set; }
     }
 }

@@ -14,7 +14,19 @@ namespace PWSZ_WCF
     
     public partial class Rok
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Rok()
+        {
+            this.Terminarz = new HashSet<Terminarz>();
+            this.Zajecia = new HashSet<Zajecia>();
+        }
+    
+        public int RokID { get; set; }
         public string Rok1 { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Terminarz> Terminarz { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zajecia> Zajecia { get; set; }
     }
 }

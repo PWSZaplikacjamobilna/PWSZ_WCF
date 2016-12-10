@@ -12,18 +12,21 @@ namespace PWSZ_WCF
     using System;
     using System.Collections.Generic;
     
-    public partial class Promotor
+    public partial class Wykladowca
     {
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public Promotor()
+        public Wykladowca()
         {
-            this.Rejestracja = new HashSet<Rejestracja>();
+            this.Konsultacje = new HashSet<Konsultacje>();
+            this.Zajecia = new HashSet<Zajecia>();
         }
     
-        public int PromotorID { get; set; }
-        public string Promotor1 { get; set; }
+        public int WykladowcaID { get; set; }
+        public string Wykładowca { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Rejestracja> Rejestracja { get; set; }
+        public virtual ICollection<Konsultacje> Konsultacje { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zajecia> Zajecia { get; set; }
     }
 }

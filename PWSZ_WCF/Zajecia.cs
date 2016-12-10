@@ -14,17 +14,31 @@ namespace PWSZ_WCF
     
     public partial class Zajecia
     {
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Zajecia()
+        {
+            this.DniZajec = new HashSet<DniZajec>();
+        }
+    
         public int ZajeciaID { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string Specjalność { get; set; }
-        public string GrupaWykladowa { get; set; }
-        public string GrupaLaboratoryjna { get; set; }
         public Nullable<System.TimeSpan> GodzinaRozpoczecia { get; set; }
         public Nullable<System.TimeSpan> GodzinaZakonczenia { get; set; }
         public string Przedmiot { get; set; }
         public string TypZajec { get; set; }
-        public string Wykładowca { get; set; }
+        public Nullable<int> Wykładowca { get; set; }
         public string Sala { get; set; }
+        public Nullable<int> Rok { get; set; }
+        public Nullable<int> Kierunek { get; set; }
+        public Nullable<int> Specjalnosc { get; set; }
+        public Nullable<int> GrupaWykladowa { get; set; }
+        public Nullable<int> GrupaLaboratoryjna { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<DniZajec> DniZajec { get; set; }
+        public virtual GrupaLaboratoryjna GrupaLaboratoryjna1 { get; set; }
+        public virtual GrupaWykladowa GrupaWykladowa1 { get; set; }
+        public virtual Rok Rok1 { get; set; }
+        public virtual Specjalnosc Specjalnosc1 { get; set; }
+        public virtual Wykladowca Wykladowca { get; set; }
     }
 }

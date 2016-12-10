@@ -16,12 +16,18 @@ namespace PWSZ_WCF
     {
         public string NumerIndeksu { get; set; }
         public string Haslo { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string GrupaWykladowa { get; set; }
-        public string GrupaLaboratoryjna { get; set; }
-        public string Promotor { get; set; }
+        public Nullable<int> Kierunek { get; set; }
+        public Nullable<int> Rok { get; set; }
+        public Nullable<int> GrupaWykladowa { get; set; }
+        public Nullable<int> GrupaLaboratoryjna { get; set; }
+        public Nullable<int> Promotor { get; set; }
         public string Coockie { get; set; }
         public Nullable<System.DateTime> DateCoockie { get; set; }
+        public Nullable<int> Specjalnosc { get; set; }
+    
+        public virtual GrupaLaboratoryjna GrupaLaboratoryjna1 { get; set; }
+        public virtual GrupaWykladowa GrupaWykladowa1 { get; set; }
+        public virtual Kierunki Kierunki { get; set; }
+        public virtual Promotor Promotor1 { get; set; }
     }
 }

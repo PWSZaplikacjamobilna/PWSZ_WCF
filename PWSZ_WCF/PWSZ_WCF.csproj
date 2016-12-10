@@ -169,6 +169,9 @@
     <Compile Include="Terminarz.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>
+    <Compile Include="Wykladowca.cs">
+      <DependentUpon>Model1.tt</DependentUpon>
+    </Compile>
     <Compile Include="Zajecia.cs">
       <DependentUpon>Model1.tt</DependentUpon>
     </Compile>

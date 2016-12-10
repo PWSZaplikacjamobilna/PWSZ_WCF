@@ -14,7 +14,16 @@ namespace PWSZ_WCF
     
     public partial class Specjalnosc
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Specjalnosc()
+        {
+            this.Zajecia = new HashSet<Zajecia>();
+        }
+    
+        public int SpecjalnoscID { get; set; }
         public string Specjalność { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Zajecia> Zajecia { get; set; }
     }
 }

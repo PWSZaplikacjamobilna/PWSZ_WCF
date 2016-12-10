@@ -4,19 +4,35 @@
   <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
     <!-- Diagram content (shape and connector positions) -->
     <edmx:Diagrams>
-      <Diagram DiagramId="4793191c3efc421f99a71afc179b71fa" Name="Diagram1">
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.DniZajec" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.GrupaLaboratoryjna" Width="1.5" PointX="2.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.GrupaWykladowa" Width="1.5" PointX="0.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Kierunki" Width="1.5" PointX="2.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Konsultacje" Width="1.5" PointX="4.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Promotor" Width="1.5" PointX="4.75" PointY="3.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Rejestracja" Width="1.5" PointX="6.75" PointY="0.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Rok" Width="1.5" PointX="0.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Specjalnosc" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.sysdiagrams" Width="1.5" PointX="6.75" PointY="4.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Terminarz" Width="1.5" PointX="4.75" PointY="7.75" IsExpanded="true" />
-        <EntityTypeShape EntityType="aplikacjaPWSZModel.Zajecia" Width="1.5" PointX="6.75" PointY="7.75" IsExpanded="true" />
+      <Diagram DiagramId="1a70871eab334f1192200bcb4bb35512" Name="Diagram1">
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.DniZajec" Width="1.5" PointX="5.25" PointY="2.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.GrupaLaboratoryjna" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.GrupaWykladowa" Width="1.5" PointX="0.75" PointY="3.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Kierunki" Width="1.5" PointX="0.75" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Konsultacje" Width="1.5" PointX="3" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Promotor" Width="1.5" PointX="0.75" PointY="19.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Rejestracja" Width="1.5" PointX="3" PointY="6.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Rok" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Specjalnosc" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.sysdiagrams" Width="1.5" PointX="7.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Terminarz" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Wykladowca" Width="1.5" PointX="0.75" PointY="15.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="aplikacjaPWSZModel.Zajecia" Width="1.5" PointX="3" PointY="0.875" IsExpanded="true" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_DniZajec_Zajecia" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Rejestracja_GrupaLaboratoryjna" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Terminarz_GrupaLaboratoryjna" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Zajecia_GrupaLaboratoryjna" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Rejestracja_GrupaWykladowa" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Terminarz_GrupaWykladowa" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Zajecia_GrupaWykladowa" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Rejestracja_Kierunki" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Terminarz_Kierunki" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Konsultacje_Wykladowca" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Rejestracja_Promotor" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Terminarz_Rok" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Zajecia_Rok" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Zajecia_Specjalnosc" ManuallyRouted="false" />
+        <AssociationConnector Association="aplikacjaPWSZModel.FK_Zajecia_Wykladowca" ManuallyRouted="false" />
       </Diagram>
     </edmx:Diagrams>
   </edmx:Designer>

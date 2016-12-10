@@ -14,7 +14,19 @@ namespace PWSZ_WCF
     
     public partial class Kierunki
     {
-        public int ID { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
+        public Kierunki()
+        {
+            this.Rejestracja = new HashSet<Rejestracja>();
+            this.Terminarz = new HashSet<Terminarz>();
+        }
+    
+        public int KierunekID { get; set; }
         public string Kierunek { get; set; }
+    
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Rejestracja> Rejestracja { get; set; }
+        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
+        public virtual ICollection<Terminarz> Terminarz { get; set; }
     }
 }

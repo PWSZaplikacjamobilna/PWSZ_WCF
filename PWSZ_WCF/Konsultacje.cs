@@ -14,9 +14,11 @@ namespace PWSZ_WCF
     
     public partial class Konsultacje
     {
-        public int ID { get; set; }
-        public string Wykładowca { get; set; }
+        public int KonsultacjeID { get; set; }
+        public Nullable<int> WykładowcaID { get; set; }
         public Nullable<System.DateTime> Data { get; set; }
         public string Sala { get; set; }
+    
+        public virtual Wykladowca Wykladowca { get; set; }
     }
 }

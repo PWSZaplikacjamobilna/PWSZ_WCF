@@ -14,8 +14,10 @@ namespace PWSZ_WCF
     
     public partial class DniZajec
     {
+        public int DniZajecID { get; set; }
         public Nullable<int> ZajeciaID { get; set; }
         public Nullable<System.DateTime> Dzien { get; set; }
-        public int ID { get; set; }
+    
+        public virtual Zajecia Zajecia { get; set; }
     }
 }

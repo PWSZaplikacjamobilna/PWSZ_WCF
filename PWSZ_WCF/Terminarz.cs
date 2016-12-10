@@ -14,14 +14,19 @@ namespace PWSZ_WCF
     
     public partial class Terminarz
     {
-        public int ID { get; set; }
+        public int TerminarzID { get; set; }
         public string Nazwa { get; set; }
         public string Opis { get; set; }
         public Nullable<System.DateTime> Data { get; set; }
-        public string Kierunek { get; set; }
-        public string Rok { get; set; }
-        public string GrupaWykladowa { get; set; }
-        public string GrupaLaboratoryjna { get; set; }
-        public string Promotor { get; set; }
+        public Nullable<int> Kierunek { get; set; }
+        public Nullable<int> Rok { get; set; }
+        public Nullable<int> GrupaWykladowa { get; set; }
+        public Nullable<int> GrupaLaboratoryjna { get; set; }
+        public Nullable<int> Promotor { get; set; }
+    
+        public virtual GrupaLaboratoryjna GrupaLaboratoryjna1 { get; set; }
+        public virtual GrupaWykladowa GrupaWykladowa1 { get; set; }
+        public virtual Kierunki Kierunki { get; set; }
+        public virtual Rok Rok1 { get; set; }
     }
 }

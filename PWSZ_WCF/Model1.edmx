@@ -7,47 +7,47 @@
       <Schema Namespace="aplikacjaPWSZModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="DniZajec">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="DniZajecID" />
           </Key>
+          <Property Name="DniZajecID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="ZajeciaID" Type="int" />
           <Property Name="Dzien" Type="date" />
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
         </EntityType>
         <EntityType Name="GrupaLaboratoryjna">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="GrupaLaboratoryjnaID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GrupaLaboratoryjnaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GrupaLaboratoryjna" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="GrupaWykladowa">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="GrupaWykladowaID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="GrupaWykladowaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="GrupaWykładowa" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Kierunki">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="KierunekID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="KierunekID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Kierunek" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Konsultacje">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="KonsultacjeID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Wykładowca" Type="varchar" MaxLength="50" />
+          <Property Name="KonsultacjeID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="WykładowcaID" Type="int" />
           <Property Name="Data" Type="datetime" />
           <Property Name="Sala" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Promotor">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="PromotorID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="PromotorID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Promotor" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Rejestracja">
@@ -56,26 +56,27 @@
           </Key>
           <Property Name="NumerIndeksu" Type="varchar" MaxLength="50" Nullable="false" />
           <Property Name="Haslo" Type="varchar" MaxLength="50" />
-          <Property Name="Kierunek" Type="varchar" MaxLength="50" />
-          <Property Name="Rok" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaWykladowa" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaLaboratoryjna" Type="varchar" MaxLength="50" />
-          <Property Name="Promotor" Type="varchar" MaxLength="150" />
+          <Property Name="Kierunek" Type="int" />
+          <Property Name="Rok" Type="int" />
+          <Property Name="GrupaWykladowa" Type="int" />
+          <Property Name="GrupaLaboratoryjna" Type="int" />
+          <Property Name="Promotor" Type="int" />
           <Property Name="Coockie" Type="varchar" MaxLength="50" />
           <Property Name="DateCoockie" Type="datetime" />
+          <Property Name="Specjalnosc" Type="int" />
         </EntityType>
         <EntityType Name="Rok">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="RokID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="RokID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Rok" Type="varchar" MaxLength="50" />
         </EntityType>
         <EntityType Name="Specjalnosc">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="SpecjalnoscID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="SpecjalnoscID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Specjalność" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="sysdiagrams">
@@ -90,35 +91,222 @@
         </EntityType>
         <EntityType Name="Terminarz">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="TerminarzID" />
           </Key>
-          <Property Name="ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="TerminarzID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
           <Property Name="Nazwa" Type="varchar" MaxLength="150" />
           <Property Name="Opis" Type="varchar" MaxLength="150" />
           <Property Name="Data" Type="datetime" />
-          <Property Name="Kierunek" Type="varchar" MaxLength="50" />
-          <Property Name="Rok" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaWykladowa" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaLaboratoryjna" Type="varchar" MaxLength="50" />
-          <Property Name="Promotor" Type="varchar" MaxLength="150" />
+          <Property Name="Kierunek" Type="int" />
+          <Property Name="Rok" Type="int" />
+          <Property Name="GrupaWykladowa" Type="int" />
+          <Property Name="GrupaLaboratoryjna" Type="int" />
+          <Property Name="Promotor" Type="int" />
+        </EntityType>
+        <EntityType Name="Wykladowca">
+          <Key>
+            <PropertyRef Name="WykladowcaID" />
+          </Key>
+          <Property Name="WykladowcaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="Wykładowca" Type="varchar" MaxLength="150" />
         </EntityType>
         <EntityType Name="Zajecia">
           <Key>
             <PropertyRef Name="ZajeciaID" />
           </Key>
           <Property Name="ZajeciaID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
-          <Property Name="Kierunek" Type="varchar" MaxLength="50" />
-          <Property Name="Rok" Type="nchar" MaxLength="10" />
-          <Property Name="Specjalność" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaWykladowa" Type="varchar" MaxLength="50" />
-          <Property Name="GrupaLaboratoryjna" Type="varchar" MaxLength="50" />
           <Property Name="GodzinaRozpoczecia" Type="time" Precision="7" />
           <Property Name="GodzinaZakonczenia" Type="time" Precision="7" />
           <Property Name="Przedmiot" Type="varchar" MaxLength="50" />
           <Property Name="TypZajec" Type="varchar" MaxLength="50" />
-          <Property Name="Wykładowca" Type="varchar" MaxLength="50" />
+          <Property Name="Wykładowca" Type="int" />
           <Property Name="Sala" Type="nchar" MaxLength="10" />
+          <Property Name="Rok" Type="int" />
+          <Property Name="Kierunek" Type="int" />
+          <Property Name="Specjalnosc" Type="int" />
+          <Property Name="GrupaWykladowa" Type="int" />
+          <Property Name="GrupaLaboratoryjna" Type="int" />
         </EntityType>
+        <Association Name="FK_DniZajec_Zajecia">
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="0..1" />
+          <End Role="DniZajec" Type="Self.DniZajec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zajecia">
+              <PropertyRef Name="ZajeciaID" />
+            </Principal>
+            <Dependent Role="DniZajec">
+              <PropertyRef Name="ZajeciaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konsultacje_Wykladowca">
+          <End Role="Wykladowca" Type="Self.Wykladowca" Multiplicity="0..1" />
+          <End Role="Konsultacje" Type="Self.Konsultacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wykladowca">
+              <PropertyRef Name="WykladowcaID" />
+            </Principal>
+            <Dependent Role="Konsultacje">
+              <PropertyRef Name="WykładowcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_Kierunki">
+          <End Role="Kierunki" Type="Self.Kierunki" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierunki">
+              <PropertyRef Name="KierunekID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="Kierunek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_Promotor">
+          <End Role="Promotor" Type="Self.Promotor" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotor">
+              <PropertyRef Name="PromotorID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="Promotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_Kierunki">
+          <End Role="Kierunki" Type="Self.Kierunki" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierunki">
+              <PropertyRef Name="KierunekID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="Kierunek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_Rok">
+          <End Role="Rok" Type="Self.Rok" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rok">
+              <PropertyRef Name="RokID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="Rok" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Rok">
+          <End Role="Rok" Type="Self.Rok" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rok">
+              <PropertyRef Name="RokID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Rok" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Specjalnosc">
+          <End Role="Specjalnosc" Type="Self.Specjalnosc" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specjalnosc">
+              <PropertyRef Name="SpecjalnoscID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Specjalnosc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Wykladowca">
+          <End Role="Wykladowca" Type="Self.Wykladowca" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wykladowca">
+              <PropertyRef Name="WykladowcaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Wykładowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="aplikacjaPWSZModelStoreContainer">
           <EntitySet Name="DniZajec" EntityType="Self.DniZajec" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="GrupaLaboratoryjna" EntityType="Self.GrupaLaboratoryjna" Schema="dbo" store:Type="Tables" />
@@ -131,7 +319,68 @@
           <EntitySet Name="Specjalnosc" EntityType="Self.Specjalnosc" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Terminarz" EntityType="Self.Terminarz" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Wykladowca" EntityType="Self.Wykladowca" Schema="dbo" store:Type="Tables" />
           <EntitySet Name="Zajecia" EntityType="Self.Zajecia" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_DniZajec_Zajecia" Association="Self.FK_DniZajec_Zajecia">
+            <End Role="Zajecia" EntitySet="Zajecia" />
+            <End Role="DniZajec" EntitySet="DniZajec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konsultacje_Wykladowca" Association="Self.FK_Konsultacje_Wykladowca">
+            <End Role="Wykladowca" EntitySet="Wykladowca" />
+            <End Role="Konsultacje" EntitySet="Konsultacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_GrupaLaboratoryjna" Association="Self.FK_Rejestracja_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_GrupaWykladowa" Association="Self.FK_Rejestracja_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_Kierunki" Association="Self.FK_Rejestracja_Kierunki">
+            <End Role="Kierunki" EntitySet="Kierunki" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_Promotor" Association="Self.FK_Rejestracja_Promotor">
+            <End Role="Promotor" EntitySet="Promotor" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_GrupaLaboratoryjna" Association="Self.FK_Terminarz_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_GrupaWykladowa" Association="Self.FK_Terminarz_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_Kierunki" Association="Self.FK_Terminarz_Kierunki">
+            <End Role="Kierunki" EntitySet="Kierunki" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_Rok" Association="Self.FK_Terminarz_Rok">
+            <End Role="Rok" EntitySet="Rok" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_GrupaLaboratoryjna" Association="Self.FK_Zajecia_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_GrupaWykladowa" Association="Self.FK_Zajecia_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Rok" Association="Self.FK_Zajecia_Rok">
+            <End Role="Rok" EntitySet="Rok" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Specjalnosc" Association="Self.FK_Zajecia_Specjalnosc">
+            <End Role="Specjalnosc" EntitySet="Specjalnosc" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Wykladowca" Association="Self.FK_Zajecia_Wykladowca">
+            <End Role="Wykladowca" EntitySet="Wykladowca" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:StorageModels>
@@ -140,48 +389,59 @@
       <Schema Namespace="aplikacjaPWSZModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
         <EntityType Name="DniZajec">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="DniZajecID" />
           </Key>
+          <Property Name="DniZajecID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="ZajeciaID" Type="Int32" />
           <Property Name="Dzien" Type="DateTime" Precision="0" />
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_DniZajec_Zajecia" FromRole="DniZajec" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="GrupaLaboratoryjna">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="GrupaLaboratoryjnaID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupaLaboratoryjnaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GrupaLaboratoryjna1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rejestracja" Relationship="Self.FK_Rejestracja_GrupaLaboratoryjna" FromRole="GrupaLaboratoryjna" ToRole="Rejestracja" />
+          <NavigationProperty Name="Terminarz" Relationship="Self.FK_Terminarz_GrupaLaboratoryjna" FromRole="GrupaLaboratoryjna" ToRole="Terminarz" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_Zajecia_GrupaLaboratoryjna" FromRole="GrupaLaboratoryjna" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="GrupaWykladowa">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="GrupaWykladowaID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="GrupaWykladowaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="GrupaWykładowa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rejestracja" Relationship="Self.FK_Rejestracja_GrupaWykladowa" FromRole="GrupaWykladowa" ToRole="Rejestracja" />
+          <NavigationProperty Name="Terminarz" Relationship="Self.FK_Terminarz_GrupaWykladowa" FromRole="GrupaWykladowa" ToRole="Terminarz" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_Zajecia_GrupaWykladowa" FromRole="GrupaWykladowa" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="Kierunki">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="KierunekID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="KierunekID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Kierunek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rejestracja" Relationship="Self.FK_Rejestracja_Kierunki" FromRole="Kierunki" ToRole="Rejestracja" />
+          <NavigationProperty Name="Terminarz" Relationship="Self.FK_Terminarz_Kierunki" FromRole="Kierunki" ToRole="Terminarz" />
         </EntityType>
         <EntityType Name="Konsultacje">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="KonsultacjeID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Wykładowca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="KonsultacjeID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="WykładowcaID" Type="Int32" />
           <Property Name="Data" Type="DateTime" Precision="3" />
           <Property Name="Sala" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Wykladowca" Relationship="Self.FK_Konsultacje_Wykladowca" FromRole="Konsultacje" ToRole="Wykladowca" />
         </EntityType>
         <EntityType Name="Promotor">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="PromotorID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="PromotorID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Promotor1" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Rejestracja" Relationship="Self.FK_Rejestracja_Promotor" FromRole="Promotor" ToRole="Rejestracja" />
         </EntityType>
         <EntityType Name="Rejestracja">
           <Key>
@@ -189,27 +449,35 @@
           </Key>
           <Property Name="NumerIndeksu" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="Haslo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Kierunek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rok" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaWykladowa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaLaboratoryjna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Promotor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Kierunek" Type="Int32" />
+          <Property Name="Rok" Type="Int32" />
+          <Property Name="GrupaWykladowa" Type="Int32" />
+          <Property Name="GrupaLaboratoryjna" Type="Int32" />
+          <Property Name="Promotor" Type="Int32" />
           <Property Name="Coockie" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="DateCoockie" Type="DateTime" Precision="3" />
+          <Property Name="Specjalnosc" Type="Int32" />
+          <NavigationProperty Name="GrupaLaboratoryjna1" Relationship="Self.FK_Rejestracja_GrupaLaboratoryjna" FromRole="Rejestracja" ToRole="GrupaLaboratoryjna" />
+          <NavigationProperty Name="GrupaWykladowa1" Relationship="Self.FK_Rejestracja_GrupaWykladowa" FromRole="Rejestracja" ToRole="GrupaWykladowa" />
+          <NavigationProperty Name="Kierunki" Relationship="Self.FK_Rejestracja_Kierunki" FromRole="Rejestracja" ToRole="Kierunki" />
+          <NavigationProperty Name="Promotor1" Relationship="Self.FK_Rejestracja_Promotor" FromRole="Rejestracja" ToRole="Promotor" />
         </EntityType>
         <EntityType Name="Rok">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="RokID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="RokID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Rok1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Terminarz" Relationship="Self.FK_Terminarz_Rok" FromRole="Rok" ToRole="Terminarz" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_Zajecia_Rok" FromRole="Rok" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="Specjalnosc">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="SpecjalnoscID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="SpecjalnoscID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Specjalność" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_Zajecia_Specjalnosc" FromRole="Specjalnosc" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="sysdiagrams">
           <Key>
@@ -223,35 +491,234 @@
         </EntityType>
         <EntityType Name="Terminarz">
           <Key>
-            <PropertyRef Name="ID" />
+            <PropertyRef Name="TerminarzID" />
           </Key>
-          <Property Name="ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="TerminarzID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="Nazwa" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Opis" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
           <Property Name="Data" Type="DateTime" Precision="3" />
-          <Property Name="Kierunek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rok" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaWykladowa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaLaboratoryjna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Promotor" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <Property Name="Kierunek" Type="Int32" />
+          <Property Name="Rok" Type="Int32" />
+          <Property Name="GrupaWykladowa" Type="Int32" />
+          <Property Name="GrupaLaboratoryjna" Type="Int32" />
+          <Property Name="Promotor" Type="Int32" />
+          <NavigationProperty Name="GrupaLaboratoryjna1" Relationship="Self.FK_Terminarz_GrupaLaboratoryjna" FromRole="Terminarz" ToRole="GrupaLaboratoryjna" />
+          <NavigationProperty Name="GrupaWykladowa1" Relationship="Self.FK_Terminarz_GrupaWykladowa" FromRole="Terminarz" ToRole="GrupaWykladowa" />
+          <NavigationProperty Name="Kierunki" Relationship="Self.FK_Terminarz_Kierunki" FromRole="Terminarz" ToRole="Kierunki" />
+          <NavigationProperty Name="Rok1" Relationship="Self.FK_Terminarz_Rok" FromRole="Terminarz" ToRole="Rok" />
+        </EntityType>
+        <EntityType Name="Wykladowca">
+          <Key>
+            <PropertyRef Name="WykladowcaID" />
+          </Key>
+          <Property Name="WykladowcaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="Wykładowca" Type="String" MaxLength="150" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="Konsultacje" Relationship="Self.FK_Konsultacje_Wykladowca" FromRole="Wykladowca" ToRole="Konsultacje" />
+          <NavigationProperty Name="Zajecia" Relationship="Self.FK_Zajecia_Wykladowca" FromRole="Wykladowca" ToRole="Zajecia" />
         </EntityType>
         <EntityType Name="Zajecia">
           <Key>
             <PropertyRef Name="ZajeciaID" />
           </Key>
           <Property Name="ZajeciaID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
-          <Property Name="Kierunek" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Rok" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
-          <Property Name="Specjalność" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaWykladowa" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="GrupaLaboratoryjna" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="GodzinaRozpoczecia" Type="Time" Precision="7" />
           <Property Name="GodzinaZakonczenia" Type="Time" Precision="7" />
           <Property Name="Przedmiot" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
           <Property Name="TypZajec" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
-          <Property Name="Wykładowca" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="Wykładowca" Type="Int32" />
           <Property Name="Sala" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+          <Property Name="Rok" Type="Int32" />
+          <Property Name="Kierunek" Type="Int32" />
+          <Property Name="Specjalnosc" Type="Int32" />
+          <Property Name="GrupaWykladowa" Type="Int32" />
+          <Property Name="GrupaLaboratoryjna" Type="Int32" />
+          <NavigationProperty Name="DniZajec" Relationship="Self.FK_DniZajec_Zajecia" FromRole="Zajecia" ToRole="DniZajec" />
+          <NavigationProperty Name="GrupaLaboratoryjna1" Relationship="Self.FK_Zajecia_GrupaLaboratoryjna" FromRole="Zajecia" ToRole="GrupaLaboratoryjna" />
+          <NavigationProperty Name="GrupaWykladowa1" Relationship="Self.FK_Zajecia_GrupaWykladowa" FromRole="Zajecia" ToRole="GrupaWykladowa" />
+          <NavigationProperty Name="Rok1" Relationship="Self.FK_Zajecia_Rok" FromRole="Zajecia" ToRole="Rok" />
+          <NavigationProperty Name="Specjalnosc1" Relationship="Self.FK_Zajecia_Specjalnosc" FromRole="Zajecia" ToRole="Specjalnosc" />
+          <NavigationProperty Name="Wykladowca" Relationship="Self.FK_Zajecia_Wykladowca" FromRole="Zajecia" ToRole="Wykladowca" />
         </EntityType>
+        <Association Name="FK_DniZajec_Zajecia">
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="0..1" />
+          <End Role="DniZajec" Type="Self.DniZajec" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Zajecia">
+              <PropertyRef Name="ZajeciaID" />
+            </Principal>
+            <Dependent Role="DniZajec">
+              <PropertyRef Name="ZajeciaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_GrupaLaboratoryjna">
+          <End Role="GrupaLaboratoryjna" Type="Self.GrupaLaboratoryjna" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaLaboratoryjna">
+              <PropertyRef Name="GrupaLaboratoryjnaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="GrupaLaboratoryjna" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_GrupaWykladowa">
+          <End Role="GrupaWykladowa" Type="Self.GrupaWykladowa" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="GrupaWykladowa">
+              <PropertyRef Name="GrupaWykladowaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="GrupaWykladowa" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_Kierunki">
+          <End Role="Kierunki" Type="Self.Kierunki" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierunki">
+              <PropertyRef Name="KierunekID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="Kierunek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_Kierunki">
+          <End Role="Kierunki" Type="Self.Kierunki" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Kierunki">
+              <PropertyRef Name="KierunekID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="Kierunek" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Konsultacje_Wykladowca">
+          <End Role="Wykladowca" Type="Self.Wykladowca" Multiplicity="0..1" />
+          <End Role="Konsultacje" Type="Self.Konsultacje" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wykladowca">
+              <PropertyRef Name="WykladowcaID" />
+            </Principal>
+            <Dependent Role="Konsultacje">
+              <PropertyRef Name="WykładowcaID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Rejestracja_Promotor">
+          <End Role="Promotor" Type="Self.Promotor" Multiplicity="0..1" />
+          <End Role="Rejestracja" Type="Self.Rejestracja" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Promotor">
+              <PropertyRef Name="PromotorID" />
+            </Principal>
+            <Dependent Role="Rejestracja">
+              <PropertyRef Name="Promotor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Terminarz_Rok">
+          <End Role="Rok" Type="Self.Rok" Multiplicity="0..1" />
+          <End Role="Terminarz" Type="Self.Terminarz" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rok">
+              <PropertyRef Name="RokID" />
+            </Principal>
+            <Dependent Role="Terminarz">
+              <PropertyRef Name="Rok" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Rok">
+          <End Role="Rok" Type="Self.Rok" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Rok">
+              <PropertyRef Name="RokID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Rok" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Specjalnosc">
+          <End Role="Specjalnosc" Type="Self.Specjalnosc" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Specjalnosc">
+              <PropertyRef Name="SpecjalnoscID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Specjalnosc" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Zajecia_Wykladowca">
+          <End Role="Wykladowca" Type="Self.Wykladowca" Multiplicity="0..1" />
+          <End Role="Zajecia" Type="Self.Zajecia" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Wykladowca">
+              <PropertyRef Name="WykladowcaID" />
+            </Principal>
+            <Dependent Role="Zajecia">
+              <PropertyRef Name="Wykładowca" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
         <EntityContainer Name="aplikacjaPWSZEntities2" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="DniZajec" EntityType="Self.DniZajec" />
           <EntitySet Name="GrupaLaboratoryjna" EntityType="Self.GrupaLaboratoryjna" />
@@ -264,7 +731,68 @@
           <EntitySet Name="Specjalnosc" EntityType="Self.Specjalnosc" />
           <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" />
           <EntitySet Name="Terminarz" EntityType="Self.Terminarz" />
+          <EntitySet Name="Wykladowca" EntityType="Self.Wykladowca" />
           <EntitySet Name="Zajecia" EntityType="Self.Zajecia" />
+          <AssociationSet Name="FK_DniZajec_Zajecia" Association="Self.FK_DniZajec_Zajecia">
+            <End Role="Zajecia" EntitySet="Zajecia" />
+            <End Role="DniZajec" EntitySet="DniZajec" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_GrupaLaboratoryjna" Association="Self.FK_Rejestracja_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_GrupaLaboratoryjna" Association="Self.FK_Terminarz_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_GrupaLaboratoryjna" Association="Self.FK_Zajecia_GrupaLaboratoryjna">
+            <End Role="GrupaLaboratoryjna" EntitySet="GrupaLaboratoryjna" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_GrupaWykladowa" Association="Self.FK_Rejestracja_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_GrupaWykladowa" Association="Self.FK_Terminarz_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_GrupaWykladowa" Association="Self.FK_Zajecia_GrupaWykladowa">
+            <End Role="GrupaWykladowa" EntitySet="GrupaWykladowa" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_Kierunki" Association="Self.FK_Rejestracja_Kierunki">
+            <End Role="Kierunki" EntitySet="Kierunki" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_Kierunki" Association="Self.FK_Terminarz_Kierunki">
+            <End Role="Kierunki" EntitySet="Kierunki" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Konsultacje_Wykladowca" Association="Self.FK_Konsultacje_Wykladowca">
+            <End Role="Wykladowca" EntitySet="Wykladowca" />
+            <End Role="Konsultacje" EntitySet="Konsultacje" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Rejestracja_Promotor" Association="Self.FK_Rejestracja_Promotor">
+            <End Role="Promotor" EntitySet="Promotor" />
+            <End Role="Rejestracja" EntitySet="Rejestracja" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Terminarz_Rok" Association="Self.FK_Terminarz_Rok">
+            <End Role="Rok" EntitySet="Rok" />
+            <End Role="Terminarz" EntitySet="Terminarz" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Rok" Association="Self.FK_Zajecia_Rok">
+            <End Role="Rok" EntitySet="Rok" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Specjalnosc" Association="Self.FK_Zajecia_Specjalnosc">
+            <End Role="Specjalnosc" EntitySet="Specjalnosc" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Zajecia_Wykladowca" Association="Self.FK_Zajecia_Wykladowca">
+            <End Role="Wykladowca" EntitySet="Wykladowca" />
+            <End Role="Zajecia" EntitySet="Zajecia" />
+          </AssociationSet>
         </EntityContainer>
       </Schema>
     </edmx:ConceptualModels>
@@ -275,16 +803,16 @@
           <EntitySetMapping Name="DniZajec">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.DniZajec">
               <MappingFragment StoreEntitySet="DniZajec">
+                <ScalarProperty Name="DniZajecID" ColumnName="DniZajecID" />
                 <ScalarProperty Name="ZajeciaID" ColumnName="ZajeciaID" />
                 <ScalarProperty Name="Dzien" ColumnName="Dzien" />
-                <ScalarProperty Name="ID" ColumnName="ID" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="GrupaLaboratoryjna">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.GrupaLaboratoryjna">
               <MappingFragment StoreEntitySet="GrupaLaboratoryjna">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GrupaLaboratoryjnaID" ColumnName="GrupaLaboratoryjnaID" />
                 <ScalarProperty Name="GrupaLaboratoryjna1" ColumnName="GrupaLaboratoryjna" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -292,7 +820,7 @@
           <EntitySetMapping Name="GrupaWykladowa">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.GrupaWykladowa">
               <MappingFragment StoreEntitySet="GrupaWykladowa">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="GrupaWykladowaID" ColumnName="GrupaWykladowaID" />
                 <ScalarProperty Name="GrupaWykładowa" ColumnName="GrupaWykładowa" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -300,7 +828,7 @@
           <EntitySetMapping Name="Kierunki">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Kierunki">
               <MappingFragment StoreEntitySet="Kierunki">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="KierunekID" ColumnName="KierunekID" />
                 <ScalarProperty Name="Kierunek" ColumnName="Kierunek" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -308,8 +836,8 @@
           <EntitySetMapping Name="Konsultacje">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Konsultacje">
               <MappingFragment StoreEntitySet="Konsultacje">
-                <ScalarProperty Name="ID" ColumnName="ID" />
-                <ScalarProperty Name="Wykładowca" ColumnName="Wykładowca" />
+                <ScalarProperty Name="KonsultacjeID" ColumnName="KonsultacjeID" />
+                <ScalarProperty Name="WykładowcaID" ColumnName="WykładowcaID" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
                 <ScalarProperty Name="Sala" ColumnName="Sala" />
               </MappingFragment>
@@ -318,7 +846,7 @@
           <EntitySetMapping Name="Promotor">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Promotor">
               <MappingFragment StoreEntitySet="Promotor">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="PromotorID" ColumnName="PromotorID" />
                 <ScalarProperty Name="Promotor1" ColumnName="Promotor" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -335,13 +863,14 @@
                 <ScalarProperty Name="Promotor" ColumnName="Promotor" />
                 <ScalarProperty Name="Coockie" ColumnName="Coockie" />
                 <ScalarProperty Name="DateCoockie" ColumnName="DateCoockie" />
+                <ScalarProperty Name="Specjalnosc" ColumnName="Specjalnosc" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Rok">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Rok">
               <MappingFragment StoreEntitySet="Rok">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="RokID" ColumnName="RokID" />
                 <ScalarProperty Name="Rok1" ColumnName="Rok" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -349,7 +878,7 @@
           <EntitySetMapping Name="Specjalnosc">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Specjalnosc">
               <MappingFragment StoreEntitySet="Specjalnosc">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="SpecjalnoscID" ColumnName="SpecjalnoscID" />
                 <ScalarProperty Name="Specjalność" ColumnName="Specjalność" />
               </MappingFragment>
             </EntityTypeMapping>
@@ -368,7 +897,7 @@
           <EntitySetMapping Name="Terminarz">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Terminarz">
               <MappingFragment StoreEntitySet="Terminarz">
-                <ScalarProperty Name="ID" ColumnName="ID" />
+                <ScalarProperty Name="TerminarzID" ColumnName="TerminarzID" />
                 <ScalarProperty Name="Nazwa" ColumnName="Nazwa" />
                 <ScalarProperty Name="Opis" ColumnName="Opis" />
                 <ScalarProperty Name="Data" ColumnName="Data" />
@@ -380,21 +909,29 @@
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
+          <EntitySetMapping Name="Wykladowca">
+            <EntityTypeMapping TypeName="aplikacjaPWSZModel.Wykladowca">
+              <MappingFragment StoreEntitySet="Wykladowca">
+                <ScalarProperty Name="WykladowcaID" ColumnName="WykladowcaID" />
+                <ScalarProperty Name="Wykładowca" ColumnName="Wykładowca" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
           <EntitySetMapping Name="Zajecia">
             <EntityTypeMapping TypeName="aplikacjaPWSZModel.Zajecia">
               <MappingFragment StoreEntitySet="Zajecia">
                 <ScalarProperty Name="ZajeciaID" ColumnName="ZajeciaID" />
-                <ScalarProperty Name="Kierunek" ColumnName="Kierunek" />
-                <ScalarProperty Name="Rok" ColumnName="Rok" />
-                <ScalarProperty Name="Specjalność" ColumnName="Specjalność" />
-                <ScalarProperty Name="GrupaWykladowa" ColumnName="GrupaWykladowa" />
-                <ScalarProperty Name="GrupaLaboratoryjna" ColumnName="GrupaLaboratoryjna" />
                 <ScalarProperty Name="GodzinaRozpoczecia" ColumnName="GodzinaRozpoczecia" />
                 <ScalarProperty Name="GodzinaZakonczenia" ColumnName="GodzinaZakonczenia" />
                 <ScalarProperty Name="Przedmiot" ColumnName="Przedmiot" />
                 <ScalarProperty Name="TypZajec" ColumnName="TypZajec" />
                 <ScalarProperty Name="Wykładowca" ColumnName="Wykładowca" />
                 <ScalarProperty Name="Sala" ColumnName="Sala" />
+                <ScalarProperty Name="Rok" ColumnName="Rok" />
+                <ScalarProperty Name="Kierunek" ColumnName="Kierunek" />
+                <ScalarProperty Name="Specjalnosc" ColumnName="Specjalnosc" />
+                <ScalarProperty Name="GrupaWykladowa" ColumnName="GrupaWykladowa" />
+                <ScalarProperty Name="GrupaLaboratoryjna" ColumnName="GrupaLaboratoryjna" />
               </MappingFragment>
             </EntityTypeMapping>
           </EntitySetMapping>
