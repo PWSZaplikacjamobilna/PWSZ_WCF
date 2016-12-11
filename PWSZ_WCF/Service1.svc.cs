@@ -1,11 +1,16 @@
 ﻿using System;
+using System.IO;
+using System.Data.Entity;
+using System.Linq;
 using System.Collections;
 using System.Collections.Generic;
 using System.Data.Entity.Validation;
-using System.IO;
-using System.Linq;
-using System.Net;
 using System.Text;
+using System.Net;
+using System.Collections.Generic;
+using System.Runtime.Serialization;
+using System.ServiceModel;
+using System.IO.Compression;
 using System.Text.RegularExpressions;
 
 namespace PWSZ_WCF
@@ -274,31 +279,66 @@ namespace PWSZ_WCF
                              where c.Coockie == cookie
                              select c).First();
 
+
             var queryZajecia = (from z in db.Zajecia
                                 join d in db.DniZajec on z.ZajeciaID equals d.ZajeciaID
+                                join w in db.Wykladowca on z.Wykładowca equals w.WykladowcaID
                                 where z.Specjalnosc == queryUser.Specjalnosc
                                 where z.Rok == queryUser.Rok
                                 where z.GrupaLaboratoryjna == queryUser.GrupaLaboratoryjna
                                 where z.GrupaWykladowa == queryUser.GrupaWykladowa
                                 where z.Kierunek == queryUser.Kierunek
                                 where d.Dzien >= now
-                                orderby d.DniZajecID
-                                select new { z.Sala, z.TypZajec, z.Wykladowca, z.GodzinaRozpoczecia, z.GodzinaZakonczenia, z.Przedmiot, d.Dzien }).Take(5);
+                                orderby d.Dzien, z.GodzinaRozpoczecia
+                                select new { z.Sala, z.TypZajec, w.Wykładowca, z.GodzinaRozpoczecia, z.GodzinaZakonczenia, z.Przedmiot, d.Dzien }).Take(5);
 
 
 
             AktualneZajecia akt = new AktualneZajecia();
             foreach (var data in queryZajecia)
             {
+                DateTime eta = new DateTime();
+                eta = (DateTime)data.Dzien + (TimeSpan)data.GodzinaRozpoczecia;
+                TimeSpan eta2 = new TimeSpan();
+                eta2 = eta - now;
+                string eta3 = "err";
+                string spec = "E";
+                if (eta2.Days >= 1)
+                {
+                    eta3 = spec + "ETA: " + eta2.Days.ToString() + " Dni";
+                }
+                else if (eta2.Hours > 0)
+                {
+                    eta3 = spec + "ETA: " + eta2.Hours.ToString() + "G " + eta2.Minutes.ToString() + "M";
+                }
+                else if (eta2.Hours == 0)
+                {
+                    if (eta2.Minutes < 40)
+                    {
+                        spec = "Z";
+                    }
+                    if (eta2.Minutes < 15)
+                    {
+                        spec = "R";
+                    }
+                    eta3 = spec + "ETA: " + eta2.Minutes.ToString() + " Minut";
+
+                }
+
+
                 akt.zajecia.Add(new AktualneZajecie
                 {
+
+
+                    wykladowca = data.Wykładowca,
                     budynek = "brak",
                     przedmiot = data.Przedmiot,
                     GodzinaRoz = (TimeSpan)data.GodzinaRozpoczecia,
                     GodzinaZak = (TimeSpan)data.GodzinaZakonczenia,
                     typ = data.TypZajec,
                     sala = data.Sala,
-                    dzień = (DateTime)data.Dzien
+                    dzień = (DateTime)data.Dzien,
+                    eta = eta3
 
 
                 });

@@ -1,9 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections;
 using System.Runtime.Serialization;
 using System.ServiceModel;
-
-
+using System.Collections.Generic;
+using System;
 
 namespace PWSZ_WCF
 {
@@ -91,6 +90,7 @@ namespace PWSZ_WCF
         public string sala;
         public string budynek;
         public DateTime dzień;
+        public string eta;
 
     }
     public class News
