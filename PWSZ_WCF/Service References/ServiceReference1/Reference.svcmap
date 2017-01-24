@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="40cccd37-da80-4991-9646-a27ad0e827f3" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <GenerateTaskBasedAsynchronousMethod>true</GenerateTaskBasedAsynchronousMethod>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="https://77.245.247.158:2195/BazusApi.svc/mex" Protocol="mex" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="service.wsdl" MetadataType="Wsdl" ID="c4ab87bd-1c59-437d-88b2-dfd775a6e8c1" SourceId="1" SourceUrl="https://77.245.247.158:2195/BazusApi.svc/mex" />
+    <MetadataFile FileName="service.xsd" MetadataType="Schema" ID="70470197-b07f-4186-ac21-b3b8eb1fc9b0" SourceId="1" SourceUrl="https://77.245.247.158:2195/BazusApi.svc/mex" />
+    <MetadataFile FileName="service1.xsd" MetadataType="Schema" ID="9a790a3e-cea2-41d7-ba04-f4f485f1b889" SourceId="1" SourceUrl="https://77.245.247.158:2195/BazusApi.svc/mex" />
+    <MetadataFile FileName="BazusApi.xsd" MetadataType="Schema" ID="a1032966-4d39-490b-b912-0f775d9e9d4b" SourceId="1" SourceUrl="https://77.245.247.158:2195/BazusApi.svc/mex" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

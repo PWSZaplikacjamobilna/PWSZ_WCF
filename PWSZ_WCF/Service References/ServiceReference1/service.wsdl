@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="BazusApi" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="CustomBinding_IBazusApi_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <sp:HttpsToken RequireClientCertificate="false" />
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import namespace="http://tempuri.org/" />
+      <xsd:import namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import namespace="http://schemas.datacontract.org/2004/07/BazusApi" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IBazusApi_GetDataLessonPlan_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataLessonPlan" />
+  </wsdl:message>
+  <wsdl:message name="IBazusApi_GetDataLessonPlan_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataLessonPlanResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBazusApi_GetDataLessonPlanForFuture_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataLessonPlanForFuture" />
+  </wsdl:message>
+  <wsdl:message name="IBazusApi_GetDataLessonPlanForFuture_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetDataLessonPlanForFutureResponse" />
+  </wsdl:message>
+  <wsdl:message name="IBazusApi_Test_InputMessage">
+    <wsdl:part name="parameters" element="tns:Test" />
+  </wsdl:message>
+  <wsdl:message name="IBazusApi_Test_OutputMessage">
+    <wsdl:part name="parameters" element="tns:TestResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IBazusApi">
+    <wsdl:operation name="GetDataLessonPlan">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBazusApi/GetDataLessonPlan" message="tns:IBazusApi_GetDataLessonPlan_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBazusApi/GetDataLessonPlanResponse" message="tns:IBazusApi_GetDataLessonPlan_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetDataLessonPlanForFuture">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBazusApi/GetDataLessonPlanForFuture" message="tns:IBazusApi_GetDataLessonPlanForFuture_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBazusApi/GetDataLessonPlanForFutureResponse" message="tns:IBazusApi_GetDataLessonPlanForFuture_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <wsdl:input wsaw:Action="http://tempuri.org/IBazusApi/Test" message="tns:IBazusApi_Test_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IBazusApi/TestResponse" message="tns:IBazusApi_Test_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="CustomBinding_IBazusApi" type="tns:IBazusApi">
+    <wsp:PolicyReference URI="#CustomBinding_IBazusApi_policy" />
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetDataLessonPlan">
+      <soap:operation soapAction="http://tempuri.org/IBazusApi/GetDataLessonPlan" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetDataLessonPlanForFuture">
+      <soap:operation soapAction="http://tempuri.org/IBazusApi/GetDataLessonPlanForFuture" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="Test">
+      <soap:operation soapAction="http://tempuri.org/IBazusApi/Test" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BazusApi">
+    <wsdl:port name="CustomBinding_IBazusApi" binding="tns:CustomBinding_IBazusApi">
+      <soap:address location="https://77.245.247.158:2195/BazusApi.svc" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
